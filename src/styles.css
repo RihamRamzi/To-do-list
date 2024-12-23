@@ -18,12 +18,11 @@ body {
   height: 100vh;
 }
 form {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-.formDiv {
-  display: flex;
-}
-input {
+
+input,
+textarea {
   outline: none;
   margin-left: 10px;
   font-size: 1.5rem;
@@ -32,18 +31,28 @@ input {
   border: none;
   padding: 5px;
   background-color: rgba(231, 228, 228, 0.897);
+  margin: 10px 0px 20px 0px;
+  font-family: inherit;
 }
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
 button {
   font-size: 1.5rem;
   padding: 10px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-family: inherit;
 }
 
 #taskDialog {
   margin: auto;
-  padding: 100px;
+  padding: 50px;
   border-radius: 30px;
   background-color: rgb(179, 176, 176);
+  width: 500px;
 }

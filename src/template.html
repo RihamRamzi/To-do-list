@@ -7,10 +7,20 @@
   </head>
   <body>
     <button id="addTask">Add Task</button>
+
     <dialog id="taskDialog">
       <form method="dialog">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" />
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task" />
+
+        <label for="des">Description:</label>
+        <textarea name="description" id="des"></textarea>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" />
+
+        <button id="submitBtn" type="submit">Submit</button>
+        <button id="closeBtn">Close</button>
       </form>
     </dialog>
   </body>
