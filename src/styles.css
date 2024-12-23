@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "exo-regular";
+  src: url("exo-regular-webfont.woff2") format("woff2"),
+    url("exo-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.863);
+  font-family: "exo-regular";
+  color: white;
+  height: 100vh;
+}
+form {
+  font-size: 2rem;
+}
+.formDiv {
+  display: flex;
+}
+input {
+  outline: none;
+  margin-left: 10px;
+  font-size: 1.5rem;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  background-color: rgba(231, 228, 228, 0.897);
+}
+button {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#taskDialog {
+  margin: auto;
+  padding: 100px;
+  border-radius: 30px;
+  background-color: rgb(179, 176, 176);
+}
