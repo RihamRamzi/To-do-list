@@ -1,5 +1,5 @@
 import "./styles.css";
-import { projectDetails } from "./projectDetails";
+import { createProjectEL } from "./createProject";
 
 const addTask = document.querySelector("#addTask");
 const dialog = document.querySelector("#taskDialog");
@@ -15,9 +15,7 @@ const date = document.querySelector("#date");
 //Options
 const addProject = document.querySelector("#addProject");
 
-addProject.addEventListener("click", () => {
-  projectDetails();
-});
+createProjectEL();
 
 addTask.addEventListener("click", () => {
   dialog.showModal();
