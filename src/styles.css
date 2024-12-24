@@ -48,17 +48,56 @@ body {
   padding: 10px;
   cursor: pointer;
 }
+.test {
+  background-color: gray;
+}
 .options:hover {
   background-color: rgba(163, 163, 163, 0.123);
 }
 .options form {
   font-size: 1.5rem;
 }
+.addP {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgba(59, 59, 59, 0.829);
+  padding: 10px;
+  border-radius: 10px;
+}
+.addP button {
+  font-weight: 900;
+  color: white;
+}
+#add {
+  background-color: rgb(38, 145, 43);
+  width: 40%;
+}
+#close {
+  background-color: rgb(141, 43, 43);
+  width: 40%;
+}
+#add:hover {
+  background-color: rgba(38, 145, 43, 0.637);
+}
+#close:hover {
+  background-color: rgb(141, 43, 43, 0.637);
+}
 
 .content {
   grid-column: 2;
   grid-row: 2;
   background-color: rgba(59, 59, 59, 0.404);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+}
+.selectedProject {
+  background-color: rgb(36, 180, 96);
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 20px;
 }
 
 .footer {
@@ -87,7 +126,7 @@ textarea {
 }
 
 button {
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 10px;
   border-radius: 10px;
   border: none;
