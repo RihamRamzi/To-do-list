@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To-do-list</title>
   </head>
   <body>
-    <button id="addTask">Add Task</button>
+    <h1 id="headerTitle">TO-DO-LIST</h1>
 
-    <dialog id="taskDialog">
-      <form method="dialog">
-        <label for="task">Task:</label>
-        <input type="text" id="task" name="task" />
+    <div class="sideBar">
+      <h1>Home</h1>
+      <div class="options">
+        <p>All Tasks</p>
+      </div>
 
-        <label for="des">Description:</label>
-        <textarea name="description" id="des"></textarea>
+      <h1>ProJects</h1>
+      <div class="options">
+        <p>Add ProJect</p>
+      </div>
+    </div>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" />
+    <div class="content"></div>
 
-        <button id="submitBtn" type="submit">Submit</button>
-        <button id="closeBtn">Close</button>
-      </form>
-    </dialog>
+    <div class="footer"></div>
   </body>
 </html>

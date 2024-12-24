@@ -16,9 +16,55 @@ body {
   font-family: "exo-regular";
   color: white;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: 1fr 8fr 0.5fr;
 }
-form {
+
+#headerTitle {
+  grid-column: 1 / span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  background-color: rgba(59, 59, 59, 0.829);
+  border-bottom: 2px solid;
+}
+
+.sideBar {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   font-size: 1.5rem;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 20px;
+}
+.sideBar h1 {
+  border-bottom: 2px solid;
+}
+.options {
+  padding: 10px;
+  cursor: pointer;
+}
+.options:hover {
+  background-color: rgba(163, 163, 163, 0.123);
+}
+.options form {
+  font-size: 1.5rem;
+}
+
+.content {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: rgba(59, 59, 59, 0.404);
+}
+
+.footer {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  background-color: rgba(163, 163, 163, 0.123);
 }
 
 input,
