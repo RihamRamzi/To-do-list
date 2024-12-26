@@ -15,6 +15,8 @@ const createProjectEL = () => {
 
   const add = document.querySelector("#add");
   add.addEventListener("click", addProjectCreation);
+
+  projectsDOM.addEventListener("click", selectedOption);
 };
 
 // display's the project creation menu
@@ -58,7 +60,7 @@ const addProjectCreation = () => {
 const displayProject = () => {
   projects.forEach((proj) => {
     const project = document.createElement("div");
-    project.className = "options project";
+    project.className = "options";
 
     const img = document.createElement("img");
     img.src = pImg;
@@ -72,6 +74,26 @@ const displayProject = () => {
     addProjectDiv.style.display = "none";
     project.setAttribute("data-id", proj.id);
     projectsDOM.appendChild(project);
+  });
+};
+
+// display selected project
+const selectedOption = (event) => {
+  const clickedElement = event.target.closest(".options");
+  const dataId = clickedElement.getAttribute("data-id");
+
+  projects.forEach((proj) => {
+    const intDataId = parseInt(dataId);
+
+    if (proj.id === intDataId) {
+      const selectedProject = document.querySelector(".selectedProject");
+      selectedProject.textContent = proj.name;
+
+      const addTask = document.querySelector("#addTask");
+      addTask.style.display = "block";
+
+      return proj;
+    }
   });
 };
 

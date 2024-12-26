@@ -22,12 +22,34 @@
         <button id="close">Close</button>
       </div>
       <div class="options" id="addProject">
+        <img src="svg/plus-circle-outline.svg" alt="" />
         <p>Add ProJect</p>
       </div>
     </div>
 
     <div class="content">
       <div class="selectedProject">NO Tasks!</div>
+
+      <div class="options" id="addTask">
+        <img src="svg/plus-circle-outline.svg" alt="" />
+        <p>Add Task</p>
+      </div>
+
+      <dialog id="taskDialog">
+        <form method="dialog">
+          <label for="task">Task:</label>
+          <input type="text" id="task" name="task" />
+
+          <label for="des">Description:</label>
+          <textarea name="description" id="des"></textarea>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" />
+
+          <button id="submitBtn" type="submit">Submit</button>
+          <button id="closeBtn">Close</button>
+        </form>
+      </dialog>
     </div>
 
     <div class="footer"></div>
