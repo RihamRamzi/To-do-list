@@ -77,6 +77,8 @@ const displayProject = () => {
   });
 };
 
+// storing the selected project on a global var to access later
+let currentProj = null;
 // display selected project
 const selectedOption = (event) => {
   const clickedElement = event.target.closest(".options");
@@ -92,9 +94,9 @@ const selectedOption = (event) => {
       const addTask = document.querySelector("#addTask");
       addTask.style.display = "block";
 
-      return proj;
+      currentProj = proj;
     }
   });
 };
 
-export { createProjectEL };
+export { createProjectEL, currentProj };

@@ -1,11 +1,8 @@
 import "./styles.css";
 import { createProjectEL } from "./createProject";
+import { addTaskEL } from "./addTask";
 
-const addTask = document.querySelector("#addTask");
 const dialog = document.querySelector("#taskDialog");
-const closeTask = document.querySelector("#closeBtn");
-const submitBtn = document.querySelector("#submitBtn");
-const form = document.querySelector("form");
 
 // input
 const task = document.querySelector("#task");
@@ -16,19 +13,4 @@ const date = document.querySelector("#date");
 const addProject = document.querySelector("#addProject");
 
 createProjectEL();
-
-addTask.addEventListener("click", () => {
-  dialog.showModal();
-});
-
-closeTask.addEventListener("click", (event) => {
-  event.preventDefault();
-  form.reset();
-  dialog.close();
-});
-
-submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  form.reset();
-  dialog.close();
-});
+addTaskEL();
