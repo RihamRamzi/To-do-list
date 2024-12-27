@@ -1,4 +1,6 @@
 import pImg from "./svg/menu.svg";
+import eImg from "./svg/dots-vertical.svg";
+import { editProjMenu } from "./editProject";
 
 // commonly used DOM elements
 const addProjectDiv = document.querySelector(".addP");
@@ -54,13 +56,14 @@ const addProjectCreation = () => {
   projects.push(project);
   projectsDOM.textContent = "";
   displayProject();
+  renderProjectSelected();
 };
 
 // display the created projects on the DOM
 const displayProject = () => {
   projects.forEach((proj) => {
     const project = document.createElement("div");
-    project.className = "options";
+    project.className = "options project";
 
     const img = document.createElement("img");
     img.src = pImg;
@@ -69,6 +72,11 @@ const displayProject = () => {
     const para = document.createElement("p");
     para.textContent = proj.name;
     project.appendChild(para);
+
+    const editImg = document.createElement("img");
+    editImg.src = eImg;
+    editImg.id = "editProj";
+    project.appendChild(editImg);
 
     projectName.value = "";
     addProjectDiv.style.display = "none";
@@ -81,8 +89,12 @@ const displayProject = () => {
 let currentProj = null;
 // display selected project
 const selectedOption = (event) => {
-  const clickedElement = event.target.closest(".options");
+  const clickedElement = event.target.closest(".project");
   const dataId = clickedElement.getAttribute("data-id");
+  clearProjectSelect();
+  clickedElement.classList.add("selected");
+
+  editProjMenu(event);
 
   projects.forEach((proj) => {
     const intDataId = parseInt(dataId);
@@ -99,4 +111,25 @@ const selectedOption = (event) => {
   });
 };
 
+const clearProjectSelect = () => {
+  const allProj = document.querySelectorAll(".project");
+  allProj.forEach((proj) => {
+    proj.classList.remove("selected");
+  });
+};
+
+const renderProjectSelected = () => {
+  const allProj = document.querySelectorAll(".project");
+
+  allProj.forEach((project) => {
+    const projId = project.getAttribute("data-id");
+    const intDataId = parseInt(projId);
+
+    if (currentProj === null) {
+      return;
+    } else if (currentProj.id === intDataId) {
+      project.classList.add("selected");
+    }
+  });
+};
 export { createProjectEL, currentProj };

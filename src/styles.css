@@ -60,9 +60,16 @@ img {
 .options:hover {
   background-color: rgba(163, 163, 163, 0.123);
 }
-.options form {
-  font-size: 1.5rem;
+p {
+  margin-right: auto;
 }
+.selected {
+  background-color: rgba(224, 224, 70, 0.884);
+}
+.selected:hover {
+  background-color: rgba(224, 224, 70, 0.664);
+}
+
 .addP {
   display: none;
   flex-wrap: wrap;
