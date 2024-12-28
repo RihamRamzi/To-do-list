@@ -6,6 +6,11 @@
     <title>To-do-list</title>
   </head>
   <body>
+    <div class="editProj">
+      <button>Rename</button>
+      <button>Delete</button>
+    </div>
+
     <h1 id="headerTitle">TO-DO-LIST</h1>
 
     <div class="sideBar">
@@ -16,7 +21,18 @@
 
       <h1>ProJects</h1>
 
-      <div class="projects"></div>
+      <div class="projects">
+        <div class="options project selected" data-id="0">
+          <img src="http://localhost:8080/ccb40cbde9df7ab7a0f2.svg" />
+          <p>12</p>
+          <div class="editProjDiv">
+            <img
+              src="http://localhost:8080/d43044eda024d9ba6340.svg"
+              id="editProj"
+            />
+          </div>
+        </div>
+      </div>
 
       <div class="addP">
         <input type="text" placeholder="Enter project name" id="projectName" />
