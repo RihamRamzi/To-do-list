@@ -3,9 +3,13 @@ import {
   currentProjDom,
   projects,
   displayProject,
+  renderProjectSelected,
 } from "./createProject";
 
+// commonly used DOMelements
 const editProject = document.querySelector(".editProj");
+const renameProj = document.querySelector(".renameProj");
+const renameProjInput = document.querySelector("#renameProjInput");
 
 const editProjEL = () => {
   const projRename = document.querySelector("#projRename");
@@ -13,6 +17,12 @@ const editProjEL = () => {
 
   const projDelete = document.querySelector("#projDelete");
   projDelete.addEventListener("click", deleteProj);
+
+  const renameProjBTN = document.querySelector("#renameProj");
+  renameProjBTN.addEventListener("click", renameProjBtn);
+
+  const cancelRenameBTN = document.querySelector("#cancelRename");
+  cancelRenameBTN.addEventListener("click", cancelRenameProjBtn);
 };
 
 const editProjMenu = (event) => {
@@ -36,6 +46,13 @@ const editProjMenu = (event) => {
 
 const editProjName = () => {
   currentProjDom.style.display = "none";
+  renameProj.style.display = "block";
+  // selected proj name
+  renameProjInput.value = currentProj.name;
+
+  currentProjDom.parentNode.insertBefore(renameProj, currentProjDom);
+  renameProjInput.focus();
+  renameProjInput.select();
 };
 
 const deleteProj = () => {
@@ -46,6 +63,20 @@ const deleteProj = () => {
     projects.splice(index, 1);
   }
   displayProject();
+};
+
+const renameProjBtn = () => {
+  currentProj.name = renameProjInput.value;
+  renameProj.style.display = "none";
+  document.body.appendChild(renameProj);
+  displayProject();
+  renderProjectSelected();
+};
+const cancelRenameProjBtn = () => {
+  renameProj.style.display = "none";
+  document.body.appendChild(renameProj);
+  displayProject();
+  renderProjectSelected();
 };
 
 export { editProjMenu, editProjEL };

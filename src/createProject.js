@@ -147,4 +147,5 @@ export {
   currentProjDom,
   projects,
   displayProject,
+  renderProjectSelected,
 };
