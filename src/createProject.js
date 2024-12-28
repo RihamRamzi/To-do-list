@@ -54,13 +54,13 @@ const addProjectCreation = () => {
   const project = new Project(id, name);
   id++;
   projects.push(project);
-  projectsDOM.textContent = "";
   displayProject();
   renderProjectSelected();
 };
 
 // display the created projects on the DOM
 const displayProject = () => {
+  projectsDOM.textContent = "";
   projects.forEach((proj) => {
     const project = document.createElement("div");
     project.className = "options project";
@@ -90,13 +90,14 @@ const displayProject = () => {
 
 // storing the selected project on a global var to access later
 let currentProj = null;
+let currentProjDom = null;
 // display selected project
 const selectedOption = (event) => {
   const clickedElement = event.target.closest(".project");
+  currentProjDom = clickedElement;
 
   if (clickedElement === null) {
     editProjMenu(event);
-
     return;
   }
   const dataId = clickedElement.getAttribute("data-id");
@@ -140,4 +141,10 @@ const renderProjectSelected = () => {
     }
   });
 };
-export { createProjectEL, currentProj };
+export {
+  createProjectEL,
+  currentProj,
+  currentProjDom,
+  projects,
+  displayProject,
+};

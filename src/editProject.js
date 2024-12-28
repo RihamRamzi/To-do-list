@@ -1,8 +1,22 @@
-//const editProjEL = () => {};
+import {
+  currentProj,
+  currentProjDom,
+  projects,
+  displayProject,
+} from "./createProject";
+
+const editProject = document.querySelector(".editProj");
+
+const editProjEL = () => {
+  const projRename = document.querySelector("#projRename");
+  projRename.addEventListener("click", editProjName);
+
+  const projDelete = document.querySelector("#projDelete");
+  projDelete.addEventListener("click", deleteProj);
+};
 
 const editProjMenu = (event) => {
   const clickedElement = event.target.closest("#editProj");
-  const editProject = document.querySelector(".editProj");
 
   if (clickedElement) {
     const selectedProject = document.querySelector(".selected");
@@ -14,11 +28,24 @@ const editProjMenu = (event) => {
     editProject.style.display = "flex";
 
     editProjectDiv.appendChild(editProject);
-  } else if (!clickedElement) {
+  } else {
     editProject.style.display = "none";
     document.body.appendChild(editProject);
   }
-  // Find the currently selected project
 };
 
-export { editProjMenu };
+const editProjName = () => {
+  currentProjDom.style.display = "none";
+};
+
+const deleteProj = () => {
+  const index = projects.indexOf(currentProj);
+
+  if (index !== -1) {
+    document.body.appendChild(editProject);
+    projects.splice(index, 1);
+  }
+  displayProject();
+};
+
+export { editProjMenu, editProjEL };

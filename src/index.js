@@ -1,6 +1,7 @@
 import "./styles.css";
 import { createProjectEL } from "./createProject";
 import { addTaskEL } from "./addTask";
+import { editProjEL } from "./editProject";
 
 const dialog = document.querySelector("#taskDialog");
 
@@ -14,3 +15,4 @@ const addProject = document.querySelector("#addProject");
 
 createProjectEL();
 addTaskEL();
+editProjEL();
