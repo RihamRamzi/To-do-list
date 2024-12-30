@@ -13,7 +13,7 @@ const renameProjInput = document.querySelector("#renameProjInput");
 
 const editProjEL = () => {
   const projRename = document.querySelector("#projRename");
-  projRename.addEventListener("click", editProjName);
+  projRename.addEventListener("click", renameProjMenu);
 
   const projDelete = document.querySelector("#projDelete");
   projDelete.addEventListener("click", deleteProj);
@@ -44,7 +44,7 @@ const editProjMenu = (event) => {
   }
 };
 
-const editProjName = () => {
+const renameProjMenu = () => {
   currentProjDom.style.display = "none";
   renameProj.style.display = "block";
   // selected proj name

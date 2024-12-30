@@ -54,21 +54,45 @@
     <div class="content">
       <div class="selectedProject">NO Tasks!</div>
 
+      <div class="tasksContainer">
+        <div class="task">
+          <div class="checkBox"></div>
+          <div class="details">
+            <div class="taskTitle">task 1</div>
+            <div class="taskDes">sleep and wakeup</div>
+          </div>
+          <div class="taskDueDate">12-12-2012</div>
+          <img
+            src="svg/square-edit-outline.svg"
+            alt=""
+            class="taskSvg editTaskSvg"
+          />
+          <img src="svg/delete.svg" alt="" class="taskSvg deleteTaskSvg" />
+        </div>
+      </div>
+
       <div class="options" id="addTask">
         <img src="svg/plus-circle-outline.svg" alt="" />
         <p>Add Task</p>
       </div>
 
       <dialog id="taskDialog">
-        <form method="dialog">
+        <form method="dialog" class="addTaskForm">
           <label for="task">Task:</label>
-          <input type="text" id="task" name="task" />
+          <input type="text" id="task" name="task" required />
 
           <label for="des">Description:</label>
           <textarea name="description" id="des"></textarea>
 
           <label for="date">Date:</label>
-          <input type="date" id="date" />
+          <input type="date" id="date" required />
+
+          <label for="priority">Priority:</label>
+          <select name="priority" id="priority" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
 
           <button id="submitBtn" type="submit">Submit</button>
           <button id="closeBtn">Close</button>
