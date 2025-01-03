@@ -177,7 +177,7 @@ select {
   border-radius: 10px;
   border: none;
   padding: 5px;
-  background-color: rgba(231, 228, 228, 0.897);
+  background-color: rgba(182, 178, 178, 0.897);
   margin: 10px 0px 20px 0px;
   font-family: inherit;
 }
@@ -206,16 +206,16 @@ button {
 }
 
 .tasksContainer {
-  border: 1px solid white;
   height: fit-content;
-  padding: 10px;
 }
 .task {
   width: 100%;
   display: grid;
-  grid-template-columns: 0.5fr 8fr 2fr 0.8fr 0.7fr;
+  grid-template-columns: 0.5fr 5fr 2fr 0.7fr 0.7fr;
   align-items: center;
   cursor: pointer;
+  border: 1px solid white;
+  padding: 10px;
 }
 li {
   list-style: none;
@@ -232,16 +232,52 @@ li {
   font-size: 1.2rem;
   margin-bottom: 8px;
 }
+.taskDueDate {
+  margin-bottom: 8px;
+}
 
 #taskDialog {
   margin: auto;
   padding: 50px;
   border-radius: 30px;
-  background-color: rgb(179, 176, 176);
+  background-color: rgb(87, 85, 85);
   width: 500px;
 }
 
 #taskDialog::backdrop {
   background: rgba(0, 0, 0, 0.253);
   backdrop-filter: blur(2px);
+}
+
+.addTaskForm button {
+  font-weight: 900;
+  color: white;
+}
+
+#submitBtn {
+  background-color: rgb(38, 145, 43);
+}
+#submitBtn:hover {
+  background-color: rgba(38, 145, 43, 0.637);
+}
+#closeBtn {
+  background-color: rgb(141, 43, 43);
+}
+#closeBtn:hover {
+  background-color: rgb(141, 43, 43, 0.637);
+}
+
+#renameProj {
+  background-color: rgb(38, 145, 43);
+  width: fit-content;
+}
+#renameProj:hover {
+  background-color: rgba(38, 145, 43, 0.637);
+}
+#cancelRename {
+  background-color: rgb(141, 43, 43);
+  width: 40%;
+}
+#cancelRename:hover {
+  background-color: rgb(141, 43, 43, 0.637);
 }

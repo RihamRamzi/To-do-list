@@ -1,6 +1,7 @@
 import pImg from "./svg/menu.svg";
 import eImg from "./svg/dots-vertical.svg";
 import { editProjMenu } from "./editProject";
+import { displayTaskDom } from "./addTask";
 
 // commonly used DOM elements
 const addProjectDiv = document.querySelector(".addP");
@@ -115,6 +116,7 @@ const selectedOption = (event) => {
       addTask.style.display = "block";
 
       currentProj = proj;
+      displayTaskDom();
     }
   });
   editProjMenu(event);
