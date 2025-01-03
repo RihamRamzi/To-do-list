@@ -1,6 +1,7 @@
 import { currentProj, projects } from "./createProject";
 import editSvg from "./svg/square-edit-outline.svg";
 import deleteSvg from "./svg/delete.svg";
+import { deleteTask } from "./editTask";
 
 const dialog = document.querySelector("#taskDialog");
 const form = document.querySelector("form");
@@ -130,7 +131,6 @@ const getCurrentTask = (event) => {
   }
   const taskId = clickedTask.getAttribute("task-id");
   const intTaskId = parseInt(taskId);
-  console.log(intTaskId);
 
   projects.forEach((project) => {
     project.task.forEach((task) => {
@@ -139,6 +139,8 @@ const getCurrentTask = (event) => {
       }
     });
   });
+
+  deleteTask(event);
 };
 
 export { addTaskEL, displayTaskDom, currentTask };

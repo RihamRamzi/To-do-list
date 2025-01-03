@@ -1,27 +1,17 @@
-import { currentTask } from "./addTask";
-import { projects } from "./createProject";
+import { currentTask, displayTaskDom } from "./addTask";
+import { currentProj } from "./createProject";
 
 const deleteTask = (event) => {
-  const deleteBtn = event.target.matches(".editTaskSvg");
+  const deleteBtn = event.target.matches(".deleteTaskSvg");
 
   if (!deleteBtn) {
     return;
   }
-  const index = projects.task.indexOf(currentTask);
-  console.log(index);
-
-  // if (index !== -1) {
-
-  // }
+  const index = currentProj.task.indexOf(currentTask);
+  if (index !== -1) {
+    currentProj.task.splice(index, 1);
+  }
+  displayTaskDom();
 };
 
-export {};
-// const deleteProj = () => {
-//   const index = projects.indexOf(currentProj);
-
-//   if (index !== -1) {
-//     document.body.appendChild(editProject);
-//     projects.splice(index, 1);
-//   }
-//   displayProject();
-// };
+export { deleteTask };
