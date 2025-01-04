@@ -1,4 +1,4 @@
-import { currentProj, projects } from "./createProject";
+import { currentProj, projects, saveToLocalStorage } from "./createProject";
 import editSvg from "./svg/square-edit-outline.svg";
 import deleteSvg from "./svg/delete.svg";
 import { deleteTask } from "./editTask";
@@ -69,6 +69,7 @@ const createTask = (event) => {
   taskId++;
   dialog.close();
   form.reset();
+  saveToLocalStorage();
   displayTaskDom();
 };
 

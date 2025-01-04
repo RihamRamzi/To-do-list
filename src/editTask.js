@@ -1,5 +1,5 @@
 import { currentTask, displayTaskDom } from "./addTask";
-import { currentProj } from "./createProject";
+import { currentProj, saveToLocalStorage } from "./createProject";
 
 const deleteTask = (event) => {
   const deleteBtn = event.target.matches(".deleteTaskSvg");
@@ -11,6 +11,7 @@ const deleteTask = (event) => {
   if (index !== -1) {
     currentProj.task.splice(index, 1);
   }
+  saveToLocalStorage();
   displayTaskDom();
 };
 
