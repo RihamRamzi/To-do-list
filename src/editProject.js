@@ -4,6 +4,7 @@ import {
   projects,
   displayProject,
   renderProjectSelected,
+  saveToLocalStorage,
 } from "./createProject";
 
 // commonly used DOMelements
@@ -62,6 +63,7 @@ const deleteProj = () => {
     document.body.appendChild(editProject);
     projects.splice(index, 1);
   }
+  saveToLocalStorage();
   displayProject();
 };
 
@@ -69,6 +71,7 @@ const renameProjBtn = () => {
   currentProj.name = renameProjInput.value;
   renameProj.style.display = "none";
   document.body.appendChild(renameProj);
+  saveToLocalStorage();
   displayProject();
   renderProjectSelected();
 };

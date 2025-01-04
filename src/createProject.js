@@ -9,6 +9,7 @@ const projectNameInput = document.querySelector("#projectName");
 const projectsDOM = document.querySelector(".projects");
 
 // EventListeners
+
 const createProjectEL = () => {
   const addProject = document.querySelector("#addProject");
   addProject.addEventListener("click", showProjectCreation);
@@ -20,6 +21,8 @@ const createProjectEL = () => {
   add.addEventListener("click", addProjectCreation);
 
   document.addEventListener("click", selectedOption);
+
+  displayProject();
 };
 
 // display's the project creation menu
@@ -43,18 +46,41 @@ class Project {
   }
 }
 
+// Local storage
+const loadFromLocalStorage = () => {
+  const data = localStorage.getItem("projects");
+  return data ? JSON.parse(data) : [];
+};
+const loadLocalID = () => {
+  let localId = localStorage.getItem("id");
+
+  if (localId === null) {
+    localId = 0;
+  } else {
+    localId = parseInt(localId);
+  }
+  return localId;
+};
+
 // an array which contains the projects created by the user
 let projects = [];
+projects = loadFromLocalStorage();
 
 // an id to track the project and access it
 let id = 0;
+id = loadLocalID();
 
 // creates the project and adds it to the array
+const saveToLocalStorage = () => {
+  localStorage.setItem("projects", JSON.stringify(projects));
+  localStorage.setItem("id", id.toString());
+};
 const addProjectCreation = () => {
   const name = projectNameInput.value;
   const project = new Project(id, name);
   id++;
   projects.push(project);
+  saveToLocalStorage();
   displayProject();
   renderProjectSelected();
 };
@@ -150,4 +176,5 @@ export {
   projects,
   displayProject,
   renderProjectSelected,
+  saveToLocalStorage,
 };
