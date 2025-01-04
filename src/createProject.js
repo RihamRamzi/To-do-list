@@ -1,7 +1,7 @@
 import pImg from "./svg/menu.svg";
 import eImg from "./svg/dots-vertical.svg";
 import { editProjMenu } from "./editProject";
-import { displayTaskDom } from "./addTask";
+import { displayTaskDom, taskId } from "./addTask";
 
 // commonly used DOM elements
 const addProjectDiv = document.querySelector(".addP");
@@ -74,6 +74,7 @@ id = loadLocalID();
 const saveToLocalStorage = () => {
   localStorage.setItem("projects", JSON.stringify(projects));
   localStorage.setItem("id", id.toString());
+  localStorage.setItem("taskId", taskId.toString());
 };
 const addProjectCreation = () => {
   const name = projectNameInput.value;

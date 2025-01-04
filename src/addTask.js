@@ -46,10 +46,21 @@ const addTask = () => {
   dialog.showModal();
 };
 
+const loadTaskLocalID = () => {
+  let localId = localStorage.getItem("taskId");
+
+  if (localId === null) {
+    localId = 0;
+  } else {
+    localId = parseInt(localId);
+  }
+  return localId;
+};
 // track current task
 let currentTask = null;
 //id to track task
 let taskId = 0;
+taskId = loadTaskLocalID();
 
 const createTask = (event) => {
   event.preventDefault();
@@ -144,4 +155,4 @@ const getCurrentTask = (event) => {
   deleteTask(event);
 };
 
-export { addTaskEL, displayTaskDom, currentTask };
+export { addTaskEL, displayTaskDom, currentTask, taskId };
