@@ -1,4 +1,4 @@
-import { projects } from "./createProject";
+import { projects, clearProjectSelect } from "./createProject";
 import editSvg from "./svg/square-edit-outline.svg";
 import deleteSvg from "./svg/delete.svg";
 
@@ -8,6 +8,8 @@ const allTasks = (event) => {
   if (!clickedElement) {
     return;
   }
+  clearProjectSelect();
+  clickedElement.classList.add("selected");
   displayAllTasksDom();
 };
 

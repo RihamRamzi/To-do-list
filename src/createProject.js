@@ -157,6 +157,8 @@ const clearProjectSelect = () => {
   allProj.forEach((proj) => {
     proj.classList.remove("selected");
   });
+  const allTasks = document.querySelector("#allTasks");
+  allTasks.classList.remove("selected");
 };
 
 const renderProjectSelected = () => {
@@ -181,4 +183,5 @@ export {
   displayProject,
   renderProjectSelected,
   saveToLocalStorage,
+  clearProjectSelect,
 };
