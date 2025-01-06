@@ -236,7 +236,7 @@ li {
   margin-bottom: 8px;
 }
 
-#taskDialog {
+.dialogCss {
   margin: auto;
   padding: 50px;
   border-radius: 30px;
@@ -244,12 +244,12 @@ li {
   width: 500px;
 }
 
-#taskDialog::backdrop {
+.dialogCss::backdrop {
   background: rgba(0, 0, 0, 0.253);
   backdrop-filter: blur(2px);
 }
 
-.addTaskForm button {
+.formCss button {
   font-weight: 900;
   color: white;
 }
@@ -260,10 +260,10 @@ li {
 #submitBtn:hover {
   background-color: rgba(38, 145, 43, 0.637);
 }
-#closeBtn {
+.closeBtn {
   background-color: rgb(141, 43, 43);
 }
-#closeBtn:hover {
+.closeBtn:hover {
   background-color: rgb(141, 43, 43, 0.637);
 }
 
@@ -280,4 +280,11 @@ li {
 }
 #cancelRename:hover {
   background-color: rgb(141, 43, 43, 0.637);
+}
+
+#editBtn {
+  background-color: rgb(38, 145, 43);
+}
+#editBtn:hover {
+  background-color: rgba(38, 145, 43, 0.637);
 }

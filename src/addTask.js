@@ -1,18 +1,21 @@
 import { currentProj, projects, saveToLocalStorage } from "./createProject";
 import editSvg from "./svg/square-edit-outline.svg";
 import deleteSvg from "./svg/delete.svg";
-import { deleteTask } from "./editTask";
+import { deleteTask, openEditTask } from "./editTask";
 
 const dialog = document.querySelector("#taskDialog");
-const form = document.querySelector("form");
+const dialogEdit = document.querySelector("#editTaskDialog");
+const form = document.querySelector(".addTaskForm");
 const tasksContainer = document.querySelector(".tasksContainer");
 
 const addTaskEL = () => {
   const addTaskBtn = document.querySelector("#addTask");
   addTaskBtn.addEventListener("click", addTask);
 
-  const closeTaskBtn = document.querySelector("#closeBtn");
-  closeTaskBtn.addEventListener("click", closeTask);
+  const closeTaskBtn = document.querySelectorAll(".closeBtn");
+  closeTaskBtn.forEach((button) => {
+    button.addEventListener("click", closeTask);
+  });
 
   form.addEventListener("submit", createTask);
 
@@ -40,6 +43,7 @@ const closeTask = (event) => {
   event.preventDefault();
   form.reset();
   dialog.close();
+  dialogEdit.close();
 };
 
 const addTask = () => {
@@ -153,6 +157,7 @@ const getCurrentTask = (event) => {
   });
 
   deleteTask(event);
+  openEditTask(event);
 };
 
 export { addTaskEL, displayTaskDom, currentTask, taskId };

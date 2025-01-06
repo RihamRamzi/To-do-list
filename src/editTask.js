@@ -1,6 +1,11 @@
 import { currentTask, displayTaskDom } from "./addTask";
 import { currentProj, saveToLocalStorage } from "./createProject";
 
+const editTaskEL = () => {
+  // const form = document.querySelector(".editTaskForm");
+  // form.addEventListener("submit");
+};
+
 const deleteTask = (event) => {
   const deleteBtn = event.target.matches(".deleteTaskSvg");
 
@@ -15,4 +20,14 @@ const deleteTask = (event) => {
   displayTaskDom();
 };
 
-export { deleteTask };
+const openEditTask = (event) => {
+  const editTaskBtn = event.target.matches(".editTaskSvg");
+
+  if (!editTaskBtn) {
+    return;
+  }
+  const dialog = document.querySelector("#editTaskDialog");
+  dialog.showModal();
+};
+
+export { deleteTask, openEditTask, editTaskEL };
