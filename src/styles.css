@@ -152,6 +152,8 @@ p {
   flex-direction: column;
   gap: 20px;
   padding: 30px;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 .selectedProject {
   background-color: rgb(36, 180, 96);
@@ -207,6 +209,8 @@ button {
 
 .tasksContainer {
   height: fit-content;
+  overflow: scroll;
+  scrollbar-width: none;
 }
 .task {
   width: 100%;
@@ -287,4 +291,11 @@ li {
 }
 #editBtn:hover {
   background-color: rgba(38, 145, 43, 0.637);
+}
+
+#allTasks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
