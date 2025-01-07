@@ -2,7 +2,7 @@ import pImg from "./svg/menu.svg";
 import eImg from "./svg/dots-vertical.svg";
 import { editProjMenu } from "./editProject";
 import { displayTaskDom, taskId } from "./addTask";
-import { allTasks } from "./home";
+import { allTasks, allTasksDelete } from "./home";
 
 // commonly used DOM elements
 const addProjectDiv = document.querySelector(".addP");
@@ -128,7 +128,7 @@ const selectedOption = (event) => {
   if (clickedElement === null) {
     editProjMenu(event);
     allTasks(event);
-
+    allTasksDelete(event);
     return;
   }
   const dataId = clickedElement.getAttribute("data-id");

@@ -91,11 +91,25 @@ const createTask = (event) => {
 const displayTaskDom = () => {
   tasksContainer.textContent = "";
   currentProj.task.forEach((task) => {
-    createTaskDom(task.id, task.title, task.description, task.priority);
+    createTaskDom(
+      task.id,
+      task.title,
+      task.description,
+      task.dueDate,
+      task.priority,
+      "taskSvg deleteTaskSvg"
+    );
   });
 };
 
-const createTaskDom = (taskId, title, description, tPriority) => {
+const createTaskDom = (
+  taskId,
+  title,
+  description,
+  dueDate,
+  tPriority,
+  taskSvg
+) => {
   const tasksConDom = document.querySelector(".tasksContainer");
 
   const taskCon = document.createElement("div");
@@ -121,7 +135,7 @@ const createTaskDom = (taskId, title, description, tPriority) => {
   const datePriority = document.createElement("div");
   const taskDueDate = document.createElement("div");
   taskDueDate.className = "taskDueDate";
-  taskDueDate.textContent = task.dueDate;
+  taskDueDate.textContent = dueDate;
   const priority = document.createElement("div");
   priority.className = "priority";
   priority.textContent = tPriority;
@@ -132,7 +146,7 @@ const createTaskDom = (taskId, title, description, tPriority) => {
   editTask.className = "taskSvg editTaskSvg";
   editTask.src = editSvg;
   const deleteTask = document.createElement("img");
-  deleteTask.className = "taskSvg deleteTaskSvg";
+  deleteTask.className = taskSvg;
   deleteTask.src = deleteSvg;
 
   taskCon.appendChild(checkBox);
@@ -160,8 +174,8 @@ const getCurrentTask = (event) => {
     });
   });
 
-  deleteTask(event);
   openEditTask(event);
+  deleteTask(event);
 };
 
 export { addTaskEL, currentTask, taskId, createTaskDom, displayTaskDom };

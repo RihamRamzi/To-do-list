@@ -1,17 +1,16 @@
-import { projects, clearProjectSelect } from "./createProject";
-import editSvg from "./svg/square-edit-outline.svg";
-import deleteSvg from "./svg/delete.svg";
-import { createTaskDom } from "./addTask";
+import {
+  projects,
+  clearProjectSelect,
+  saveToLocalStorage,
+} from "./createProject";
+import { createTaskDom, currentTask } from "./addTask";
 
 const allTasks = (event) => {
-  const clickedElement = event.target.closest("#allTasks");
-
-  if (!clickedElement) {
-    return;
+  if (event.target.matches("#allTasks")) {
+    clearProjectSelect();
+    event.target.className = "selected";
+    displayAllTasksDom();
   }
-  clearProjectSelect();
-  clickedElement.classList.add("selected");
-  displayAllTasksDom();
 };
 
 const displayAllTasksDom = () => {
@@ -21,11 +20,33 @@ const displayAllTasksDom = () => {
   tasksContainer.textContent = "";
   projects.forEach((project) => {
     project.task.forEach((task) => {
-      createTaskDom(task.id, task.title, task.description, task.priority);
+      createTaskDom(
+        task.id,
+        task.title,
+        task.description,
+        task.dueDate,
+        task.priority,
+        "taskSvg deleteAllTaskSvg"
+      );
     });
   });
   const addTask = document.querySelector("#addTask");
   addTask.style.display = "none";
 };
 
-export { allTasks };
+const allTasksDelete = (event) => {
+  const clickedElement = event.target.matches(".deleteAllTaskSvg");
+  if (!clickedElement) {
+  }
+  projects.forEach((project) => {
+    const index = project.task.indexOf(currentTask);
+
+    if (index !== -1) {
+      project.task.splice(index, 1);
+      saveToLocalStorage();
+      displayAllTasksDom();
+    }
+  });
+};
+
+export { allTasks, allTasksDelete };
