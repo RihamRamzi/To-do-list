@@ -37,6 +37,7 @@ const displayAllTasksDom = () => {
 const allTasksDelete = (event) => {
   const clickedElement = event.target.matches(".deleteAllTaskSvg");
   if (!clickedElement) {
+    return;
   }
   projects.forEach((project) => {
     const index = project.task.indexOf(currentTask);
@@ -49,4 +50,4 @@ const allTasksDelete = (event) => {
   });
 };
 
-export { allTasks, allTasksDelete };
+export { allTasks, allTasksDelete, displayAllTasksDom };

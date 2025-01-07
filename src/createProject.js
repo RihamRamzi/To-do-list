@@ -3,6 +3,7 @@ import eImg from "./svg/dots-vertical.svg";
 import { editProjMenu } from "./editProject";
 import { displayTaskDom, taskId } from "./addTask";
 import { allTasks, allTasksDelete } from "./home";
+import { allTaskSelected, checkIfAllTaskSelected } from "./editTask";
 
 // commonly used DOM elements
 const addProjectDiv = document.querySelector(".addP");
@@ -128,7 +129,10 @@ const selectedOption = (event) => {
   if (clickedElement === null) {
     editProjMenu(event);
     allTasks(event);
+    // checks if the user clicked all task func
+    checkIfAllTaskSelected(event);
     allTasksDelete(event);
+
     return;
   }
   const dataId = clickedElement.getAttribute("data-id");
@@ -150,6 +154,8 @@ const selectedOption = (event) => {
     }
   });
   editProjMenu(event);
+  // checks if the user clicked all task func
+  checkIfAllTaskSelected(event);
 };
 
 const clearProjectSelect = () => {

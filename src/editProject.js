@@ -68,7 +68,9 @@ const deleteProj = () => {
 };
 
 const renameProjBtn = () => {
+  const selectedProject = document.querySelector(".selectedProject");
   currentProj.name = renameProjInput.value;
+  selectedProject.textContent = currentProj.name;
   renameProj.style.display = "none";
   document.body.appendChild(renameProj);
   saveToLocalStorage();

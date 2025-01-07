@@ -1,9 +1,22 @@
 import { currentTask, displayTaskDom } from "./addTask";
 import { currentProj, saveToLocalStorage } from "./createProject";
+import { displayAllTasksDom } from "./home";
 
 const editTaskEL = () => {
   const form = document.querySelector(".editTaskForm");
   form.addEventListener("submit", submitEditTask);
+};
+
+let allTaskSelected = false;
+const checkIfAllTaskSelected = (event) => {
+  const clickedElement = event.target.matches("#allTasks");
+  const clickedElement2 = event.target.matches(".project");
+
+  if (clickedElement) {
+    allTaskSelected = true;
+  } else if (clickedElement2) {
+    allTaskSelected = false;
+  }
 };
 
 const deleteTask = (event) => {
@@ -56,10 +69,24 @@ const submitEditTask = (event) => {
   currentTask.dueDate = taskDate.value;
   currentTask.priority = priority.value;
 
+  if (allTaskSelected === true) {
+    dialog.close();
+    form.reset();
+    saveToLocalStorage();
+    displayAllTasksDom();
+    return;
+  }
+
   dialog.close();
   saveToLocalStorage();
   form.reset();
   displayTaskDom();
 };
 
-export { deleteTask, openEditTask, editTaskEL };
+export {
+  deleteTask,
+  openEditTask,
+  editTaskEL,
+  checkIfAllTaskSelected,
+  allTaskSelected,
+};
