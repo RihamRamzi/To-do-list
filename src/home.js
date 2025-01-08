@@ -9,7 +9,7 @@ const allTasks = (event) => {
   if (event.target.closest("#allTasks")) {
     clearProjectSelect();
     const addTask = document.querySelector("#allTasks");
-    addTask.className = "selected";
+    addTask.className = "options selected";
     displayAllTasksDom();
   }
 };

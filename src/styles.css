@@ -52,9 +52,6 @@ body {
   gap: 10px;
   align-items: center;
 }
-.home {
-  padding: 0;
-}
 
 img {
   width: 30px;
@@ -303,4 +300,13 @@ li {
   width: 100%;
   padding: 5px;
   gap: 5px;
+}
+#todayTasks {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  gap: 5px;
+  margin-top: -20px;
 }
