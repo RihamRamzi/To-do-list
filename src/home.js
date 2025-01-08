@@ -6,9 +6,10 @@ import {
 import { createTaskDom, currentTask } from "./addTask";
 
 const allTasks = (event) => {
-  if (event.target.matches("#allTasks")) {
+  if (event.target.closest("#allTasks")) {
     clearProjectSelect();
-    event.target.className = "selected";
+    const addTask = document.querySelector("#allTasks");
+    addTask.className = "selected";
     displayAllTasksDom();
   }
 };

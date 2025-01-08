@@ -9,7 +9,7 @@ const editTaskEL = () => {
 
 let allTaskSelected = false;
 const checkIfAllTaskSelected = (event) => {
-  const clickedElement = event.target.matches("#allTasks");
+  const clickedElement = event.target.closest("#allTasks");
   const clickedElement2 = event.target.closest(".project");
 
   if (clickedElement) {
