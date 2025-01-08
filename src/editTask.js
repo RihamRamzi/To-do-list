@@ -1,12 +1,13 @@
 import { currentTask, displayTaskDom } from "./addTask";
 import { currentProj, saveToLocalStorage } from "./createProject";
-import { displayAllTasksDom } from "./home";
+import { displayAllTasksDom, displayTodayTasksDom } from "./home";
 
 const editTaskEL = () => {
   const form = document.querySelector(".editTaskForm");
   form.addEventListener("submit", submitEditTask);
 };
 
+// checks if All tasks selected so i can apply different delete and edit func
 let allTaskSelected = false;
 const checkIfAllTaskSelected = (event) => {
   const clickedElement = event.target.closest("#allTasks");
@@ -14,8 +15,22 @@ const checkIfAllTaskSelected = (event) => {
 
   if (clickedElement) {
     allTaskSelected = true;
+    todayTasksSelected = false;
   } else if (clickedElement2) {
     allTaskSelected = false;
+  }
+};
+
+let todayTasksSelected = false;
+const checkIfTodayTasksSelected = (event) => {
+  const clickedElement = event.target.closest("#todayTasks");
+  const clickedElement2 = event.target.closest(".project");
+
+  if (clickedElement) {
+    todayTasksSelected = true;
+    allTaskSelected = false;
+  } else if (clickedElement2) {
+    todayTasksSelected = false;
   }
 };
 
@@ -75,6 +90,12 @@ const submitEditTask = (event) => {
     saveToLocalStorage();
     displayAllTasksDom();
     return;
+  } else if (todayTasksSelected === true) {
+    dialog.close();
+    form.reset();
+    saveToLocalStorage();
+    displayTodayTasksDom();
+    return;
   }
 
   dialog.close();
@@ -88,5 +109,5 @@ export {
   openEditTask,
   editTaskEL,
   checkIfAllTaskSelected,
-  allTaskSelected,
+  checkIfTodayTasksSelected,
 };

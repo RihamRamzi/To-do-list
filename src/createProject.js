@@ -2,8 +2,18 @@ import pImg from "./svg/menu.svg";
 import eImg from "./svg/dots-vertical.svg";
 import { editProjMenu } from "./editProject";
 import { displayTaskDom, taskId } from "./addTask";
-import { allTasks, allTasksDelete } from "./home";
-import { allTaskSelected, checkIfAllTaskSelected } from "./editTask";
+import {
+  allTasks,
+  allTasksDelete,
+  displayAllTasksDom,
+  selectTodayTasks,
+  todayTasksDelete,
+} from "./home";
+import {
+  allTaskSelected,
+  checkIfAllTaskSelected,
+  checkIfTodayTasksSelected,
+} from "./editTask";
 
 // commonly used DOM elements
 const addProjectDiv = document.querySelector(".addP");
@@ -132,7 +142,9 @@ const selectedOption = (event) => {
     // checks if the user clicked all task func
     checkIfAllTaskSelected(event);
     allTasksDelete(event);
-
+    selectTodayTasks(event);
+    checkIfTodayTasksSelected(event);
+    todayTasksDelete(event);
     return;
   }
   const dataId = clickedElement.getAttribute("data-id");
@@ -156,6 +168,7 @@ const selectedOption = (event) => {
   editProjMenu(event);
   // checks if the user clicked all task func
   checkIfAllTaskSelected(event);
+  checkIfTodayTasksSelected(event);
 };
 
 const clearProjectSelect = () => {
@@ -165,6 +178,8 @@ const clearProjectSelect = () => {
   });
   const allTasks = document.querySelector("#allTasks");
   allTasks.classList.remove("selected");
+  const todayTasks = document.querySelector("#todayTasks");
+  todayTasks.classList.remove("selected");
 };
 
 const renderProjectSelected = () => {
