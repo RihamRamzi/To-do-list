@@ -13,6 +13,7 @@ import {
   allTaskSelected,
   checkIfAllTaskSelected,
   checkIfTodayTasksSelected,
+  taskCompleted,
 } from "./editTask";
 
 // commonly used DOM elements
@@ -145,6 +146,7 @@ const selectedOption = (event) => {
     selectTodayTasks(event);
     checkIfTodayTasksSelected(event);
     todayTasksDelete(event);
+    taskCompleted(event);
     return;
   }
   const dataId = clickedElement.getAttribute("data-id");

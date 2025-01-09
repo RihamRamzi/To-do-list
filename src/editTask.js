@@ -104,10 +104,32 @@ const submitEditTask = (event) => {
   displayTaskDom();
 };
 
+const taskCompleted = (event) => {
+  const clickedElement = event.target.matches(".checkBox");
+
+  if (!clickedElement) {
+    return;
+  }
+  const taskDiv = event.target.closest(".task");
+  const taskTitle = taskDiv.querySelector(".taskTitle");
+  currentTask.isComplete = !currentTask.isComplete;
+
+  if (currentTask.isComplete) {
+    event.target.classList.add("completed");
+    taskTitle.style.textDecoration = "line-through";
+  } else {
+    event.target.classList.remove("completed");
+    taskTitle.style.textDecoration = "none";
+  }
+
+  saveToLocalStorage();
+};
+
 export {
   deleteTask,
   openEditTask,
   editTaskEL,
   checkIfAllTaskSelected,
   checkIfTodayTasksSelected,
+  taskCompleted,
 };

@@ -310,3 +310,12 @@ li {
   gap: 5px;
   margin-top: -20px;
 }
+
+.completed {
+  background-image: url(./svg/checkmark.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-color: white;
+  border-color: #2abd67;
+}
