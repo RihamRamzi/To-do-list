@@ -28,7 +28,8 @@ const displayAllTasksDom = () => {
         task.description,
         task.dueDate,
         task.priority,
-        "taskSvg deleteAllTaskSvg"
+        "taskSvg deleteAllTaskSvg",
+        task.isComplete
       );
     });
   });
@@ -76,7 +77,8 @@ const displayTodayTasksDom = () => {
           task.description,
           task.dueDate,
           task.priority,
-          "taskSvg deleteTodayTaskSvg"
+          "taskSvg deleteTodayTaskSvg",
+          task.isComplete
         );
       }
     })

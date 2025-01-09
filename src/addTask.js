@@ -97,7 +97,8 @@ const displayTaskDom = () => {
       task.description,
       task.dueDate,
       task.priority,
-      "taskSvg deleteTaskSvg"
+      "taskSvg deleteTaskSvg",
+      task.isComplete
     );
   });
 };
@@ -108,7 +109,8 @@ const createTaskDom = (
   description,
   dueDate,
   tPriority,
-  taskSvg
+  taskSvg,
+  isComplete
 ) => {
   const tasksConDom = document.querySelector(".tasksContainer");
 
@@ -148,6 +150,14 @@ const createTaskDom = (
   const deleteTask = document.createElement("img");
   deleteTask.className = taskSvg;
   deleteTask.src = deleteSvg;
+
+  if (isComplete) {
+    checkBox.classList.add("completed");
+    taskTitle.style.textDecoration = "line-through";
+  } else {
+    checkBox.classList.remove("completed");
+    taskTitle.style.textDecoration = "none";
+  }
 
   taskCon.appendChild(checkBox);
   taskCon.appendChild(details);
